@@ -1,6 +1,5 @@
 from functools import reduce
-from year_2020.day_1 import (
-    find_2020_sum_from_expense_list, find_2020_sum_from_expense_list_2)
+from year_2020.day_1 import find_combinations_2020
 
 SAMPLE = [
     1721,
@@ -10,6 +9,7 @@ SAMPLE = [
     675,
     1456,
 ]
+
 
 MOCK_EXPENSE = [
     1918, 1869, 1821, 1852, 1981, 1987, 1989, 1597, 1634, 1537, 1991, 1603,
@@ -30,18 +30,14 @@ MOCK_EXPENSE = [
     1793, 1797, 1979, 1903, 1638, 1940, 1911, 1301, 1669, 1409, 1578, 1887,
     1860, 1619, 1939, 1625, 1941, 1374, 1766, 1407
 ]
+def test_find_combinations_2020_sample():
+    assert find_combinations_2020(SAMPLE, 2) == 514579
 
-def test_find_2020_sum_from_expense_list():
-    val_1, val_2 = find_2020_sum_from_expense_list(MOCK_EXPENSE)
+def test_find_2020_sum_from_expense_list_2_sample():
+    assert find_combinations_2020(SAMPLE, 3) ==241861950
 
-    combination = [val_1, val_2]
-
-    assert val_1 + val_2 == 2020
-    assert val_1 * val_2 == 858496
-
+def test_find_combinations_2020():
+    assert find_combinations_2020(MOCK_EXPENSE, 2) == 858496
 
 def test_find_2020_sum_from_expense_list_2():
-    results = find_2020_sum_from_expense_list_2(MOCK_EXPENSE)
-
-    assert sum(results) == 2020
-    assert reduce(lambda x, y: x * y, results) == 263819430
+    assert find_combinations_2020(MOCK_EXPENSE, 3) ==263819430
