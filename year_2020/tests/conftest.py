@@ -17,3 +17,11 @@ def day_2_input():
 @pytest.fixture
 def day_3_input():
     return open_file('3')
+
+@pytest.fixture
+def day_4_sample():
+    return open_file('4_sample')
+
+@pytest.fixture
+def day_4_input():
+    return open_file('4')
